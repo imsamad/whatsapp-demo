@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- FontAwesome Lib for WhatsApp Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>Whatsapp - Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100wv;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+
+    .btn-wrapper {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .btn {
+      width: 80px;
+      height: 80px;
+      outline: none;
+      border: 0;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .qrcode {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: scale(0);
+      transition: transform 0.3s;
+    }
+
+    .qrcode.show {
+      transform: scale(1);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Whatsapp Click To Chat - Demo</h1>
+  <div class="qrcode">
+    <ol>
+      <li> Open WhatsApp > tap Camera 📷</li>
+      <li>Hold your device over the QR code to scan.</li>
+      <li>Tap ADD.</li>
+      </ul>
+      <img src="./qrcode.jpg" alt="Abdus-Samad-WhatsApp-QR-Code" />
+  </div>
+
+  <div class="btn-wrapper">
+    <button class="btn" onclick="whatsapp()">
+      <i class="fa fa-whatsapp" style="font-size: 48px; color: green"></i>
+    </button>
+  </div>
+
+  <script>
+    function whatsapp() {
+      var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) window.location.replace("https://wa.me/+91-9870645161");
+      else document.querySelector('.qrcode').classList.toggle('show');
+    }
+  </script>
+
+</body>
+
+</html>
